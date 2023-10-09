@@ -1,4 +1,4 @@
-# Crumbit - A Modern Fullstack Reddit Clone For Foodies
+# crumbit - A Modern Fullstack Reddit Clone For Foodies
 
 Built with the Next.js App Router, TypeScript & Tailwind
 
