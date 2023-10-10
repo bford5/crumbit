@@ -4,8 +4,11 @@
 import Link from "next/link";
 import { Icons } from "@/components/Icons";
 import { buttonVariants } from "../ui/Button";
+import { getAuthSession } from "@/lib/auth";
 
-const Nav = () => {
+const Nav = async () => {
+	const session = await getAuthSession();
+
 	return (
 		<header className='fixed top-0 inset-x-0 h-fit z-[10] py-6 border-b-dm-accent border-b-2 bg-bg-darkMode'>
 			<div className='container max-w-7xl h-full mx-auto flex flex-row justify-between items-center gap-2'>
@@ -19,12 +22,22 @@ const Nav = () => {
 				<nav className='flex flex-row gap-3 items-center'>
 					<Link href='/'>Home</Link>
 					<Link href='/about'>About</Link>
-					<Link
-						href='/login'
-						className={buttonVariants({ variant: "default" })}
-					>
-						Login
-					</Link>
+					{!session && (
+						<Link
+							href='/login'
+							className={buttonVariants({ variant: "default" })}
+						>
+							Login
+						</Link>
+					)}
+					{session && (
+						<Link
+							href='/login'
+							className={buttonVariants({ variant: "default" })}
+						>
+							Logout
+						</Link>
+					)}
 				</nav>
 			</div>
 		</header>

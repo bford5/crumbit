@@ -64,4 +64,6 @@ export const authOptions: NextAuthOptions = {
 		},
 	},
 };
+
+// below is helper func for preconfiged auth session
 export const getAuthSession = () => getServerSession(authOptions);
