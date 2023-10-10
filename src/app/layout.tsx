@@ -1,5 +1,6 @@
 import Footer from "@/components/layout/Footer";
 import Nav from "@/components/layout/Nav";
+import { Toaster } from "@/components/ui/toaster";
 import { classNameHelper } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
 				<main className='container mx-auto pt-20 max-w-7xl min-h-screen scroll-smooth'>
 					{children}
 				</main>
+				<Toaster />
 				<Footer />
 			</body>
 		</html>
