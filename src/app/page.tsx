@@ -1,3 +1,7 @@
 export default function Home() {
-  return <div>Home</div>
+	return (
+		<section className='pt-4'>
+			<h1>Home</h1>
+		</section>
+	);
 }
