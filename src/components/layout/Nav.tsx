@@ -3,8 +3,9 @@
 // import Image from "next/image";
 import Link from "next/link";
 import { Icons } from "@/components/Icons";
-import { buttonVariants } from "../ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
 import { getAuthSession } from "@/lib/auth";
+import UserAccountNav from "@/components/UserAccountNav";
 
 const Nav = async () => {
 	const session = await getAuthSession();
@@ -20,9 +21,9 @@ const Nav = async () => {
 				</div>
 				<div className='Search'>{/* SEARCH COMPONENT */}</div>
 				<nav className='flex flex-row gap-3 items-center'>
-					<Link href='/'>Home</Link>
-					<Link href='/about'>About</Link>
-					{!session && (
+					<Link href='/'>home</Link>
+					<Link href='/about'>about</Link>
+					{!session?.user && (
 						<Link
 							href='/login'
 							className={buttonVariants({ variant: "default" })}
@@ -30,13 +31,14 @@ const Nav = async () => {
 							Login
 						</Link>
 					)}
-					{session && (
-						<Link
-							href='/login'
-							className={buttonVariants({ variant: "default" })}
-						>
-							Logout
-						</Link>
+					{session?.user && (
+						// <Link
+						// 	href='/login'
+						// 	className={buttonVariants({ variant: "default" })}
+						// >
+						// 	Logout
+						// </Link>
+						<UserAccountNav user={session.user} />
 					)}
 				</nav>
 			</div>
