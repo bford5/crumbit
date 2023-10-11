@@ -42,7 +42,7 @@ const UserAuthForm: FC<UserAuthFormProps> = ({ className, ...props }) => {
 				size='sm'
 				className='w-full'
 			>
-				Login w/{" "}
+				with{" "}
 				{/* {isLoading ? <Icons.google className='h-4 w-4 ml-1' /> : " Google"} */}
 				{isLoading ? " Google" : <Icons.google className='h-4 w-4 ml-1' />}
 			</Button>

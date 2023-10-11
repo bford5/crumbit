@@ -2,7 +2,7 @@ import { buttonVariants } from "@/components/ui/Button";
 import { classNameHelper } from "@/lib/utils";
 import Link from "next/link";
 import { FC } from "react";
-import SignIn from "@/components/SignIn";
+import SignIn from "@/components/Login";
 
 // interface pageProps {}
 
