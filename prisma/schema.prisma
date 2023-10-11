@@ -43,10 +43,103 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
+  createdCrumbbaskets Crumbbasket[] @relation("CreatedBy")
+  subscriptions Subscription[]
+  Vote Vote[]
 
   username String? @unique
 
   image    String?
   accounts Account[]
   sessions Session[]
+
+  Post Post[]
+  Comment Comment[]
+  CommentVote CommentVote[]
+}
+
+model Crumbbasket {
+  // equivalent to a subreddit
+  id String @id @default(cuid())
+  name String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts Post[]
+
+  creatorId String?
+  Creator User? @relation("CreatedBy",fields: [creatorId], references: [id])
+  subscribers Subscription[]
+
+  @@index([name])
+}
+
+model Subscription {
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  crumbbasket Crumbbasket @relation(fields: [crumbbasketId], references: [id])
+  crumbbasketId String
+
+  @@id([userId, crumbbasketId])
+}
+
+model Post {
+  id String @id @default(cuid())
+  title String
+  content Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author User @relation(fields: [authorId], references: [id])
+  authorId String
+  crumbbasket Crumbbasket @relation(fields: [crumbbasketId], references: [id])
+  crumbbasketId String
+  comments Comment[]
+  votes Vote[]
+
+}
+
+model Comment {
+  id String @id @default(cuid())
+  commentContent String
+  createdAt DateTime @default(now())
+  author User @relation(fields: [authorId], references: [id])
+  authorId String
+  post Post @relation(fields: [postId], references: [id])
+  postId String
+
+  replyToId String?
+  replyTo Comment? @relation("ReplyTo", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies Comment[] @relation("ReplyTo")
+
+  votes CommentVote[]
+  commentId String?
+  userId String
+
+
+  // updatedAt DateTime @updatedAt
+}
+
+enum VoteType {
+  UP
+  DOWN
+}
+
+model CommentVote {
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  comment Comment @relation(fields: [commentId], references: [id])
+  commentId String
+  type VoteType
+
+  @@id([userId, commentId])
+}
+
+model Vote {
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  post Post @relation(fields: [postId], references: [id])
+  postId String
+
+  type VoteType
+
+  @@id([userId,postId])
 }
