@@ -1,3 +1,4 @@
+import Providers from "@/components/Providers";
 import Footer from "@/components/cover/Footer";
 import Nav from "@/components/cover/Nav";
 import { Toaster } from "@/components/ui/toaster";
@@ -30,14 +31,16 @@ export default function RootLayout({
 			)}
 		>
 			<body className='bg-bg-darkMode text-text-darkMode antialiased min-h-screen pt-4 h-full scroll-smooth'>
-				{/* @ts-expect-error server-component */}
-				<Nav />
-				{authModal}
-				<main className='container mx-auto pt-20 max-w-7xl min-h-screen scroll-smooth'>
-					{children}
-				</main>
-				<Toaster />
-				<Footer />
+				<Providers>
+					{/* @ts-expect-error server-component */}
+					<Nav />
+					{authModal}
+					<main className='mx-auto pt-20 max-w-7xl min-h-screen scroll-smooth'>
+						{children}
+					</main>
+					<Toaster />
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	);

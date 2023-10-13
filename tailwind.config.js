@@ -63,11 +63,11 @@ module.exports = {
 				"bg-darkMode": "#090a15",
 				"text-darkMode": "#e3e3e3",
 			},
-			borderRadius: {
-				lg: `var(--radius)`,
-				md: `calc(var(--radius) - 2px)`,
-				sm: "calc(var(--radius) - 4px)",
-			},
+			// borderRadius: {
+			// 	lg: `var(--radius)`,
+			// 	md: `calc(var(--radius) - 2px)`,
+			// 	sm: "calc(var(--radius) - 4px)",
+			// },
 			fontFamily: {
 				sans: ["var(--font-sans)", ...fontFamily.sans],
 			},

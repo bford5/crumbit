@@ -14,3 +14,11 @@ Built with the Next.js App Router, TypeScript & Tailwind
 - Image uploads & link previews
 - Full comment functionality with nested replies
 - ... and much more!
+
+---
+
+## Low traffic reddit-style forum for Foodies to:
+
+- make Communities -> crumbbaskets
+- make Posts -> crumbs
+- earn Votes -> nibbles
