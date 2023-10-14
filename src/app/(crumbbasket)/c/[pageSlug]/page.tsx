@@ -11,12 +11,12 @@ import { notFound } from "next/navigation";
 
 interface PageProps {
 	params: {
-		crumbbasket: string;
+		pageSlug: string;
 	};
 }
 
 const page = async ({ params }: PageProps) => {
-	const { crumbbasket: pageSlug } = params;
+	const { pageSlug } = params;
 
 	const session = await getAuthSession();
 
@@ -40,14 +40,15 @@ const page = async ({ params }: PageProps) => {
 	if (!existingCrumbbasket) return notFound();
 
 	return (
-		<section className='container max-w-5xl mx-auto pt-20'>
+		<>
 			<div className='flex flex-col justify-center items-center gap-2'>
 				<h1 className='font-bold text-2xl md:text-3xl h-14'>
 					welcome to c/{existingCrumbbasket.name}
 				</h1>
 				<MiniCreatePost session={session} />
+				{/* TODO: return posts in user feed BELOW */}
 			</div>
-		</section>
+		</>
 	);
 };
 
