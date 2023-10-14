@@ -35,7 +35,7 @@ export default function RootLayout({
 					{/* @ts-expect-error server-component */}
 					<Nav />
 					{authModal}
-					<main className='mx-auto pt-20 max-w-7xl min-h-screen scroll-smooth'>
+					<main className='mx-auto pt-20 max-w-7xl min-h-screen mb-20 scroll-smooth'>
 						{children}
 					</main>
 					<Toaster />

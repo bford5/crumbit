@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+    NOTE: !important is used b/c of need to override 3rd party library default styling
+        - would not normally be done due to restrictions !important imposes
+*/
+.ce-inline-toolbar > div div svg {
+	color: #000 !important;
+}
+.ce-conversion-toolbar div.ce-conversion-toolbar__tools div.ce-conversion-tool {
+	color: #000 !important;
+}
+
+.ce-header {
+	color: #fff !important;
+}
+
+.ce-inline-tool-input {
+	color: #000 !important;
+}
+
+.ce-block a {
+	color: #94ffff !important;
+}
+
+code.inline-code {
+	background-color: #94ffff !important;
+	color: #000 !important;
+}
+.ce-block--selected .ce-block__content {
+	color: #000 !important;
+}
+
+.ce-toolbar__plus {
+	background-color: #fff !important;
+}

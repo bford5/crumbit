@@ -6,7 +6,7 @@ import { Icons } from "@/components/Icons";
 
 const Footer = () => {
 	return (
-		<footer className='absolute bottom-0 inset-x-0 h-fit z-[10] py-6 border-t-dm-accent border-t-2 bg-bg-darkMode'>
+		<footer className='fixed bottom-0 inset-x-0 h-fit z-[10] py-6 border-t-dm-accent border-t-2 bg-bg-darkMode mt-10'>
 			<div className='container max-w-7xl h-full mx-auto flex flex-row justify-between items-center gap-2'>
 				<nav className='flex flex-row gap-2'>
 					<Link href='/'>Home</Link>

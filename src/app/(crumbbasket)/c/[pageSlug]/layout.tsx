@@ -1,8 +1,9 @@
 import SubLeaveToggle from "@/components/crumbbasket/SubLeaveToggle";
-import { Button } from "@/components/ui/Button";
+import { Button, buttonVariants } from "@/components/ui/Button";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { format } from "date-fns";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const Layout = async ({
@@ -69,7 +70,7 @@ const Layout = async ({
 					<div className='hidden md:block overflow-hidden h-fit rounded-lg border border-dm-accent order-first md:order-last'>
 						<div className='px-6 py-4'>
 							<p className='font-semibold py-3'>
-								About c/{viewingCrumbbasket.name}
+								about c/{viewingCrumbbasket.name}
 							</p>
 							{viewingCrumbbasket.creatorId === session?.user.id ? (
 								<p className='text-center lg:text-left text-[13px]'>
@@ -104,6 +105,19 @@ const Layout = async ({
 									/>
 								</div>
 							) : null}
+
+							<div className='p-2'>
+								<Link
+									href={`${pageSlug}/submit`}
+									className={buttonVariants({
+										variant: "custom1",
+										className:
+											"w-full bg-bg-darkMode hover:bg-text-lightMode border border-bg-darkMode hover:border-dm-accent transition-all duration-200",
+									})}
+								>
+									drop a crumb!
+								</Link>
+							</div>
 						</dl>
 					</div>
 				</div>
