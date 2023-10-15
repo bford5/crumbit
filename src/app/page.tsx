@@ -1,14 +1,20 @@
+import CustomFeed from "@/components/feeds/CustomFeed";
+import GeneralFeed from "@/components/feeds/GeneralFeed";
 import { buttonVariants } from "@/components/ui/Button";
+import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+	const session = await getAuthSession();
+
 	return (
 		<section className='pt-4 container'>
 			<h1>Home</h1>
 			<h2 className='font-bold text-3xl md:text-4xl'>Your crumbit feed</h2>
 			<div className='grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6'>
-				{/* feed */}
+				{/* @ts-expect-error server component */}
+				{session ? <CustomFeed /> : <GeneralFeed />}
 				{/* crumbbasket info ;; eg a subreddit */}
 				<div className='overflow-hidden h-fit rounded-lg border border-dm-accent order-first md:order-last'>
 					<div className='bg-dm-accent px-6 py-4'>
