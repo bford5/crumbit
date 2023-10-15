@@ -74,7 +74,7 @@ const Layout = async ({
 							</p>
 							{viewingCrumbbasket.creatorId === session?.user.id ? (
 								<p className='text-center lg:text-left text-[13px]'>
-									you own crumbbasket!
+									you own this crumbbasket!
 								</p>
 							) : null}
 						</div>
