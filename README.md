@@ -4,7 +4,7 @@
 - make Posts -> crumbs
 - earn Votes -> nibbles
 
-https://crumbit.vercel.app/[https://crumbit.vercel.app/]
+https://crumbit.vercel.app/
 
 ---
 
