@@ -73,6 +73,7 @@ const CreateComment: FC<CreateCommentProps> = ({ crumbId, replyToId }) => {
 				/>
 				<div className='mt-2 flex justify-end'>
 					<Button
+						className='bg-lm-accent'
 						isLoading={isLoading}
 						disabled={commentInput.length === 0}
 						onClick={() =>
@@ -83,7 +84,7 @@ const CreateComment: FC<CreateCommentProps> = ({ crumbId, replyToId }) => {
 							})
 						}
 					>
-						Post
+						post
 					</Button>
 				</div>
 			</div>

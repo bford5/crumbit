@@ -41,7 +41,7 @@ const CrumbComments = async ({ crumbId }: CrumbCommentsProps) => {
 							(acc, vote) => {
 								if (vote.type === "UP") return acc + 1;
 								if (vote.type === "DOWN") return acc - 1;
-								acc;
+								return acc;
 							},
 							0
 						);
