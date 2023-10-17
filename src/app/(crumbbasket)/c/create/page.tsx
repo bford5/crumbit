@@ -3,14 +3,14 @@
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { useRouter } from "next/navigation";
-import { FC, useState } from "react";
+import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { CreateCrumbbasketPayload } from "@/lib/validators/crumbbasket";
 import { toast } from "@/hooks/use-toast";
 import { useCustomToast } from "@/hooks/use-custom-toast";
 
-const page: FC = () => {
+const Page = () => {
 	const [input, setInput] = useState<string>("");
 	const { loginToast } = useCustomToast();
 
@@ -99,4 +99,4 @@ const page: FC = () => {
 	);
 };
 
-export default page;
+export default Page;

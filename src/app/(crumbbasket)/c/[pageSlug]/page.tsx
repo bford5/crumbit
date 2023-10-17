@@ -3,11 +3,11 @@
 
 import CrumbFeed from "@/components/crumbbasket/CrumbFeed";
 import MiniCreatePost from "@/components/crumbbasket/MiniCreatePost";
-import { buttonVariants } from "@/components/ui/Button";
+// import { buttonVariants } from "@/components/ui/Button";
 import { INFINIT_SCROLLING_PAGINATION_RESULTS } from "@/config";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
-import Link from "next/link";
+// import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface PageProps {

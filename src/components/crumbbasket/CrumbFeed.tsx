@@ -77,6 +77,7 @@ const CrumbFeed: FC<CrumbFeedProps> = ({ initialPosts, crumbbasketName }) => {
 				} else {
 					return (
 						<Crumb
+							key={post.id}
 							currentVote={currentVote}
 							votesAmount={votesAmount}
 							commentAmount={post.comments.length}
