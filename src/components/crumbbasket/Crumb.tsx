@@ -50,7 +50,7 @@ const Crumb: FC<CrumbProps> = ({
 								<span className='px-1'>-</span>
 							</>
 						) : null}
-						<span>dropped by u/{crumb.author.name}</span>{" "}
+						<span>dropped by u/{crumb.author.username}</span>{" "}
 						{formatTimeToNow(new Date(crumb.createdAt))}
 					</div>
 					<a href={`/c/${crumbbasketName}/crumb/${crumb.id}`} className=''>
