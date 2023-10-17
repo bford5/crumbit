@@ -5,6 +5,10 @@ import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+// ^^ patches to workaround nextJS caching
+
 export default async function Home() {
 	const session = await getAuthSession();
 
