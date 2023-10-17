@@ -8,7 +8,7 @@ export const CrumbVoteValidator = z.object({
 export type CrumbVoteRequest = z.infer<typeof CrumbVoteValidator>;
 
 export const CrumbCommentVoteValidator = z.object({
-	crumbId: z.string(),
+	// crumbId: z.string(),
 	crumbCommentId: z.string(),
 	voteType: z.enum(["UP", "DOWN"]),
 });

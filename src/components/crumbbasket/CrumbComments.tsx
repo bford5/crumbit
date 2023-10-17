@@ -38,7 +38,6 @@ const CrumbComments = async ({ crumbId }: CrumbCommentsProps) => {
 					.filter((comment) => !comment.replyToId)
 					.map((topLvlComment) => {
 						const topLvlCommentVotesAmount = topLvlComment.votes.reduce(
-							// @ts-expect-error overload?
 							(acc, vote) => {
 								if (vote.type === "UP") return acc + 1;
 								if (vote.type === "DOWN") return acc - 1;
@@ -54,7 +53,12 @@ const CrumbComments = async ({ crumbId }: CrumbCommentsProps) => {
 						return (
 							<div key={topLvlComment.id} className='flex flex-col'>
 								<div className='mb-2'>
-									<CrumbComment comment={topLvlComment} />
+									<CrumbComment
+										crumbId={crumbId}
+										currentVote={topLvlCommentVote}
+										votesAmount={topLvlCommentVotesAmount}
+										comment={topLvlComment}
+									/>
 								</div>
 							</div>
 						);
