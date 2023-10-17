@@ -6,6 +6,7 @@ import { Icons } from "@/components/Icons";
 import { buttonVariants } from "@/components/ui/Button";
 import { getAuthSession } from "@/lib/auth";
 import UserAccountNav from "@/components/UserAccountNav";
+import SearchBar from "../SearchBar";
 
 const Nav = async () => {
 	const session = await getAuthSession();
@@ -19,7 +20,10 @@ const Nav = async () => {
 						<p className='hidden text-sm font-medium md:block'>crumbit</p>
 					</Link>
 				</div>
-				<div className='Search'>{/* SEARCH COMPONENT */}</div>
+				<div className='Search'>
+					{/* SEARCH COMPONENT */}
+					<SearchBar />
+				</div>
 				<nav className='flex flex-row gap-3 items-center'>
 					<Link href='/'>home</Link>
 					<Link href='/about'>about</Link>
