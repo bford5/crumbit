@@ -14,6 +14,7 @@ import { Textarea } from "../ui/textarea";
 import { useMutation } from "@tanstack/react-query";
 import { CommentRequest } from "@/lib/validators/comment";
 import axios from "axios";
+import { toast } from "@/hooks/use-toast";
 
 type ExtendedComment = Comment & {
 	votes: CommentVote[];
@@ -58,6 +59,18 @@ const CrumbComment: FC<CrumbCommentProps> = ({
 				payload
 			);
 			return data;
+		},
+		onError: () => {
+			return toast({
+				title: "something went wrong",
+				description: "unable to complete request, please try again",
+				variant: "destructive",
+			});
+		},
+		onSuccess: () => {
+			setIsReplying(false);
+			setCommentInput("");
+			router.refresh();
 		},
 	});
 

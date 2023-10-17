@@ -60,6 +60,37 @@ const CrumbComments = async ({ crumbId }: CrumbCommentsProps) => {
 										comment={topLvlComment}
 									/>
 								</div>
+								{/* render comment replies here */}
+								{topLvlComment.replies
+									.sort((a, b) => (b.votes.length = a.votes.length))
+									.map((sortedReplyData) => {
+										const replyVotesAmount = sortedReplyData.votes.reduce(
+											(acc, vote) => {
+												if (vote.type === "UP") return acc + 1;
+												if (vote.type === "DOWN") return acc - 1;
+												return acc;
+											},
+											0
+										);
+
+										const replyVote = sortedReplyData.votes.find(
+											(vote) => vote.userId === session?.user.id
+										);
+
+										return (
+											<div
+												key={sortedReplyData.id}
+												className='xs:ml-1 sm:ml-3 md:ml-5 py-2 pl-4 border-l-2 border-dm-primary'
+											>
+												<CrumbComment
+													comment={sortedReplyData}
+													currentVote={replyVote}
+													votesAmount={replyVotesAmount}
+													crumbId={crumbId}
+												/>
+											</div>
+										);
+									})}
 							</div>
 						);
 					})}
