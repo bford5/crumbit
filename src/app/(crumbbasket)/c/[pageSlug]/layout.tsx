@@ -67,7 +67,7 @@ const Layout = async ({
 				<div className='grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6'>
 					<div className='flex flex-col col-span-2 space-y-6'>{children}</div>
 					{/* INFOSIDEBAR */}
-					<div className='hidden md:block overflow-hidden h-fit rounded-lg border border-dm-accent order-first md:order-last'>
+					<div className='block order-last h-fit rounded-lg border mx-4 md:mx-0 border-dm-accent overflow-hidden'>
 						<div className='px-6 py-4'>
 							<p className='font-semibold py-3'>
 								about c/{viewingCrumbbasket.name}

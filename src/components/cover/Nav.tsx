@@ -26,7 +26,7 @@ const Nav = async () => {
 				</div>
 				<nav className='flex flex-row gap-3 items-center'>
 					<Link href='/'>home</Link>
-					<Link href='/about'>about</Link>
+					{/* <Link href='/about'>about</Link> */}
 					{!session?.user && (
 						<Link
 							href='/login'
